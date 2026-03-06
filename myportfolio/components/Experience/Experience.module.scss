@@ -1,0 +1,187 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.experience {
+  @include section-padding;
+  position: relative;
+}
+
+.container {
+  @include container;
+}
+
+// Timeline
+.timeline {
+  position: relative;
+  padding-left: $space-xl;
+
+  @include md {
+    padding-left: $space-3xl;
+  }
+}
+
+.timelineLine {
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    $color-accent 0%,
+    $color-border 30%,
+    $color-border 70%,
+    transparent 100%
+  );
+
+  @include md {
+    left: 14px;
+  }
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: $space-3xl;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timelineDot {
+  position: absolute;
+  left: calc(-#{$space-xl} - 1px);
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include md {
+    left: calc(-#{$space-3xl} - 1px);
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.timelineDotInner {
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-full;
+  background: $color-bg;
+  border: 2px solid $color-accent;
+  transition: all $transition-base;
+
+  @include md {
+    width: 12px;
+    height: 12px;
+  }
+
+  .timelineItem:hover & {
+    background: $color-accent;
+    box-shadow: 0 0 12px rgba($color-accent, 0.4);
+  }
+}
+
+// Card
+.card {
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-xl;
+  transition: border-color $transition-base;
+
+  @include md {
+    padding: $space-2xl;
+  }
+
+  &:hover {
+    border-color: $color-border-hover;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-md;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+.period {
+  @include mono-label;
+}
+
+.category {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  font-family: $font-mono;
+}
+
+.role {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: $color-text-primary;
+  letter-spacing: -0.01em;
+  margin-bottom: $space-xs;
+}
+
+.company {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  font-size: $font-size-sm;
+  color: $color-accent;
+  transition: opacity $transition-fast;
+  margin-bottom: $space-lg;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.description {
+  @include body-sm;
+  margin-bottom: $space-lg;
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  margin-bottom: $space-lg;
+}
+
+.highlight {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  display: flex;
+  gap: $space-sm;
+  line-height: 1.6;
+}
+
+.highlightDash {
+  color: $color-accent;
+  flex-shrink: 0;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+.techBadge {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0.7rem;
+  border-radius: $radius-full;
+  background: $color-accent-muted;
+  color: $color-accent;
+}

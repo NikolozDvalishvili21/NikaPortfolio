@@ -1,0 +1,36 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.sectionHeading {
+  margin-bottom: $space-4xl;
+
+  @include md {
+    margin-bottom: $space-5xl;
+  }
+}
+
+.label {
+  @include mono-label;
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  margin-bottom: $space-lg;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: $color-accent;
+  }
+}
+
+.title {
+  @include heading-lg;
+}
+
+.subtitle {
+  @include body-lg;
+  margin-top: $space-md;
+  max-width: 550px;
+}

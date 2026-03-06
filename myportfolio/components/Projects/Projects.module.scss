@@ -1,0 +1,225 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.projects {
+  @include section-padding;
+  position: relative;
+}
+
+.container {
+  @include container;
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4xl;
+}
+
+.projectItem {
+  width: 100%;
+}
+
+// Card
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-xl;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  transition: border-color $transition-slow;
+
+  @include lg {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+    min-height: 480px;
+  }
+
+  &:hover {
+    border-color: $color-border-hover;
+  }
+}
+
+.cardRight {
+  @include lg {
+    grid-template-columns: 1fr 1.2fr;
+
+    .imageSection {
+      order: 2;
+    }
+
+    .contentSection {
+      order: 1;
+    }
+  }
+}
+
+// Image section
+.imageSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+
+  @include lg {
+    min-height: 480px;
+  }
+}
+
+.imagePlaceholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: $color-surface;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.6s $ease-out-expo;
+}
+
+.imageFallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $color-surface, $color-bg-card);
+  color: $color-text-tertiary;
+  font-size: $font-size-lg;
+  font-weight: 500;
+  z-index: 0;
+}
+
+.image + .imageFallback {
+  // Hide fallback when real image loads
+  z-index: -1;
+}
+
+.yearBadge {
+  position: absolute;
+  top: $space-lg;
+  right: $space-lg;
+  padding: 0.3rem 0.8rem;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-full;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+// Content section
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $space-xl;
+
+  @include md {
+    padding: $space-2xl $space-3xl;
+  }
+}
+
+.projectCategory {
+  @include mono-label;
+  margin-bottom: $space-md;
+}
+
+.projectTitle {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: $space-md;
+}
+
+.projectDesc {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: 1.7;
+  margin-bottom: $space-sm;
+
+  @include md {
+    font-size: $font-size-md;
+  }
+}
+
+.projectLongDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  line-height: 1.7;
+  margin-bottom: $space-lg;
+}
+
+.projectStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  margin-bottom: $space-xl;
+}
+
+.stackItem {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  padding: 0.3rem 0.75rem;
+  border-radius: $radius-full;
+  background: $color-accent-muted;
+  color: $color-accent;
+}
+
+.projectLinks {
+  display: flex;
+  gap: $space-lg;
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  color: $color-text-primary;
+  transition: color $transition-fast;
+  padding-bottom: 2px;
+  border-bottom: 1px solid $color-border;
+
+  &:hover {
+    color: $color-accent;
+    border-color: $color-accent;
+  }
+
+  svg {
+    transition: transform $transition-fast;
+  }
+
+  &:hover svg {
+    transform: translate(2px, -2px);
+  }
+}
+
+// Card glow effect
+.cardGlow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid $color-border-accent;
+  z-index: 3;
+}

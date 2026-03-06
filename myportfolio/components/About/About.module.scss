@@ -1,0 +1,127 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.about {
+  @include section-padding;
+  position: relative;
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-3xl;
+
+  @include lg {
+    grid-template-columns: 1fr 1.4fr;
+    gap: $space-4xl;
+    align-items: start;
+  }
+}
+
+// Image area
+.imageWrapper {
+  position: relative;
+  max-width: 400px;
+
+  @include lg {
+    position: sticky;
+    top: 120px;
+  }
+}
+
+.imagePlaceholder {
+  aspect-ratio: 3 / 4;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  overflow: hidden;
+}
+
+.imageLabel {
+  font-size: $font-size-lg;
+  color: $color-text-tertiary;
+  font-weight: 500;
+}
+
+.imageHint {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.imageFrame {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: -12px;
+  bottom: -12px;
+  border: 1px solid $color-border-accent;
+  border-radius: $radius-lg;
+  z-index: -1;
+}
+
+// Text content
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+}
+
+.paragraph {
+  @include body-lg;
+  color: $color-text-secondary;
+
+  &:first-of-type::first-letter {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: $color-accent;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.1em;
+    margin-top: 0.1em;
+  }
+}
+
+// Detail items
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-lg;
+  padding-top: $space-xl;
+  border-top: 1px solid $color-border;
+  margin-top: $space-md;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.detailLabel {
+  @include mono-label;
+  font-size: 0.65rem;
+}
+
+.detailValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: 500;
+}
+
+// Section divider
+.divider {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient($color-border, transparent);
+  margin: $space-section auto 0;
+}

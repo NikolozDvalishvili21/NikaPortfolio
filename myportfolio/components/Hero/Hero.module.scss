@@ -1,0 +1,308 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 6rem;
+
+  @include md {
+    padding-top: 0;
+  }
+}
+
+// Background grid
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+// Accent line
+.accentLine {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    $color-accent-muted 30%,
+    $color-accent-muted 70%,
+    transparent
+  );
+  transform-origin: left;
+  pointer-events: none;
+  display: none;
+
+  @include lg {
+    display: block;
+  }
+}
+
+.container {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4xl;
+  align-items: flex-start;
+  position: relative;
+  z-index: $z-base;
+
+  @include lg {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-3xl;
+  }
+}
+
+// Left content
+.content {
+  flex: 1;
+  max-width: 720px;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: 0.4rem 1rem;
+  border-radius: $radius-full;
+  border: 1px solid $color-border;
+  background: $color-bg-elevated;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-bottom: $space-2xl;
+  font-family: $font-mono;
+  letter-spacing: 0.05em;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: $radius-full;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.headingBlock {
+  margin-bottom: $space-xl;
+}
+
+.heading {
+  @include heading-xl;
+  display: flex;
+  flex-direction: column;
+}
+
+.line1 {
+  display: block;
+  color: $color-text-primary;
+}
+
+.line2 {
+  display: block;
+  color: $color-text-primary;
+}
+
+.accentDot {
+  color: $color-accent;
+}
+
+.roleBlock {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  margin-top: $space-lg;
+}
+
+.roleLabel {
+  @include mono-label;
+  color: $color-text-tertiary;
+}
+
+.role {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 400;
+  color: $color-text-secondary;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  @include body-lg;
+  max-width: 480px;
+  margin-bottom: $space-2xl;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+}
+
+// Right visual
+.visual {
+  flex-shrink: 0;
+  display: none;
+
+  @include lg {
+    display: block;
+  }
+}
+
+.visualInner {
+  position: relative;
+  width: 360px;
+  height: 360px;
+
+  @include xl {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+.codeBlock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+
+  @include xl {
+    width: 320px;
+  }
+}
+
+.codeHeader {
+  display: flex;
+  gap: 6px;
+  padding: 12px 16px;
+  border-bottom: 1px solid $color-border;
+}
+
+.codeDot {
+  width: 10px;
+  height: 10px;
+  border-radius: $radius-full;
+  background: $color-surface;
+}
+
+.codeContent {
+  padding: 16px 20px;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  line-height: 1.8;
+}
+
+.codeLine {
+  display: block;
+  color: $color-text-secondary;
+}
+
+.codeKeyword {
+  color: #c792ea;
+}
+
+.codeVar {
+  color: #82aaff;
+}
+
+.codeOp {
+  color: $color-text-tertiary;
+}
+
+.codeProp {
+  color: $color-accent;
+}
+
+.codeString {
+  color: #c3e88d;
+}
+
+// Orbit ring
+.orbitRing {
+  position: absolute;
+  inset: 0;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbitDot {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: $radius-full;
+  background: $color-accent;
+  box-shadow: 0 0 12px rgba($color-accent, 0.4);
+}
+
+.cornerBracket {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-right: 2px solid $color-border;
+  border-bottom: 2px solid $color-border;
+}
+
+// Scroll indicator
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-sm;
+  color: $color-text-tertiary;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 24px;
+  background: $color-accent;
+}

@@ -1,0 +1,87 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.footer {
+  border-top: 1px solid $color-border;
+  padding: $space-3xl 0;
+}
+
+.container {
+  @include container;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+  padding-bottom: $space-2xl;
+  border-bottom: 1px solid $color-border;
+  margin-bottom: $space-xl;
+
+  @include md {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.name {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+}
+
+.accent {
+  color: $color-accent;
+}
+
+.tagline {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-lg;
+}
+
+.link {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.copyright {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.credit {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  font-family: $font-mono;
+  letter-spacing: 0.03em;
+}

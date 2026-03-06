@@ -1,0 +1,184 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-sticky;
+  padding: $space-lg 0;
+  transition: all $transition-base;
+}
+
+.scrolled {
+  padding: $space-md 0;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid $color-border;
+}
+
+.container {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Logo
+.logo {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+  z-index: $z-overlay + 1;
+
+  @include focus-ring;
+}
+
+.logoAccent {
+  color: $color-accent;
+}
+
+// Desktop nav
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: $space-xl;
+
+  @include lg {
+    display: flex;
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  font-weight: 400;
+  transition: color $transition-fast;
+
+  @include focus-ring;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+
+  &:hover .navIndex {
+    color: $color-accent;
+  }
+}
+
+.navIndex {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  transition: color $transition-fast;
+}
+
+// Burger
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: $z-overlay + 1;
+
+  @include lg {
+    display: none;
+  }
+}
+
+.burgerLine {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: $color-text-primary;
+  transition: all $transition-base;
+  transform-origin: center;
+}
+
+.burgerOpen {
+  .burgerLine:first-child {
+    transform: translateY(3.75px) rotate(45deg);
+  }
+
+  .burgerLine:last-child {
+    transform: translateY(-3.75px) rotate(-45deg);
+  }
+}
+
+// Mobile overlay
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: $z-overlay;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mobileNav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(85vw, 400px);
+  background: $color-bg;
+  border-left: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6rem $space-2xl $space-2xl;
+}
+
+.mobileNavInner {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  font-size: $font-size-2xl;
+  font-weight: 600;
+  color: $color-text-primary;
+  letter-spacing: -0.01em;
+  padding: $space-sm 0;
+  transition: color $transition-fast;
+
+  @include focus-ring;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.mobileNavIndex {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.mobileNavFooter {
+  padding-top: $space-xl;
+  border-top: 1px solid $color-border;
+}
+
+.mobileEmail {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}

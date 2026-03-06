@@ -1,0 +1,125 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.contact {
+  @include section-padding;
+  position: relative;
+}
+
+.container {
+  @include container;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4xl;
+
+  @include lg {
+    grid-template-columns: 1.5fr 1fr;
+    gap: $space-5xl;
+    align-items: start;
+  }
+}
+
+// CTA block
+.ctaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+}
+
+.ctaHeading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: $color-text-primary;
+}
+
+.ctaAccent {
+  color: $color-accent;
+}
+
+.emailLink {
+  font-family: $font-mono;
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  color: $color-text-secondary;
+  transition: color $transition-fast;
+  padding-bottom: 4px;
+  border-bottom: 1px solid $color-border;
+  width: fit-content;
+
+  &:hover {
+    color: $color-accent;
+    border-color: $color-accent;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+  margin-top: $space-md;
+}
+
+// Social block
+.socialBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  @include lg {
+    padding-top: $space-md;
+  }
+}
+
+.socialLabel {
+  @include mono-label;
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-md $space-lg;
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $color-bg-elevated;
+    border-color: $color-border;
+  }
+
+  &:hover .socialName {
+    color: $color-accent;
+  }
+
+  &:hover svg {
+    transform: translate(2px, -2px);
+    color: $color-accent;
+  }
+
+  svg {
+    transition: all $transition-fast;
+    color: $color-text-tertiary;
+  }
+}
+
+.socialName {
+  font-size: $font-size-base;
+  font-weight: 500;
+  color: $color-text-primary;
+  transition: color $transition-fast;
+
+  @include md {
+    font-size: $font-size-lg;
+  }
+}

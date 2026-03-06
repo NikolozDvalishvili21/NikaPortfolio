@@ -1,0 +1,145 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.skills {
+  @include section-padding;
+  position: relative;
+}
+
+.container {
+  @include container;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3xl;
+}
+
+.category {
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-xl;
+  transition: border-color $transition-base;
+
+  @include md {
+    padding: $space-2xl $space-3xl;
+  }
+
+  &:hover {
+    border-color: $color-border-hover;
+  }
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-lg;
+  margin-bottom: $space-xl;
+  padding-bottom: $space-lg;
+  border-bottom: 1px solid $color-border;
+}
+
+.categoryIndex {
+  @include mono-label;
+  font-size: $font-size-2xl;
+  color: $color-accent-muted;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0.5;
+
+  // Use text color instead
+  color: $color-accent;
+}
+
+.categoryTitle {
+  font-size: $font-size-xl;
+  font-weight: 600;
+  color: $color-text-primary;
+  letter-spacing: -0.01em;
+  margin-bottom: $space-xs;
+}
+
+.categoryDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-sm;
+
+  @include sm {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include md {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.skillItem {
+  padding: $space-md $space-lg;
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  transition: all $transition-base;
+  cursor: default;
+
+  &:hover {
+    background: $color-bg-hover;
+    border-color: $color-border;
+  }
+}
+
+.skillContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.skillName {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: 500;
+
+  @include md {
+    font-size: $font-size-base;
+  }
+}
+
+.levelIndicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.levelDot {
+  width: 6px;
+  height: 6px;
+  border-radius: $radius-full;
+
+  &.expert {
+    background: $color-accent;
+    box-shadow: 0 0 6px rgba($color-accent, 0.3);
+  }
+
+  &.advanced {
+    background: #82aaff;
+    box-shadow: 0 0 6px rgba(130, 170, 255, 0.3);
+  }
+
+  &.intermediate {
+    background: $color-text-tertiary;
+  }
+}
+
+.levelText {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $color-text-tertiary;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
