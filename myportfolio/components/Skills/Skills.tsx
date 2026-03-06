@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { skillCategories } from "@/data/skills";
+import { getSkillIcon } from "@/data/skillIcons";
 import SectionHeading from "@/components/shared/SectionHeading";
 import RevealOnScroll from "@/components/shared/RevealOnScroll";
 import styles from "./Skills.module.scss";
@@ -48,7 +49,14 @@ export default function Skills() {
                       whileHover={{ y: -2 }}
                     >
                       <div className={styles.skillContent}>
-                        <span className={styles.skillName}>{skill.name}</span>
+                        <div className={styles.skillTop}>
+                          {getSkillIcon(skill.name) && (
+                            <span className={styles.skillIcon}>
+                              {getSkillIcon(skill.name)}
+                            </span>
+                          )}
+                          <span className={styles.skillName}>{skill.name}</span>
+                        </div>
                         {skill.level && (
                           <div className={styles.levelIndicator}>
                             <span

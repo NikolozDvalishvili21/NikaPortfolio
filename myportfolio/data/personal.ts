@@ -3,10 +3,10 @@
 // ============================================
 
 export const personal = {
-  name: "Your Name",
-  firstName: "Your",
-  lastName: "Name",
-  role: "Full-Stack Developer",
+  name: "Nikoloz Dvalishvili",
+  firstName: "Nikoloz",
+  lastName: "Dvalishvili",
+  role: "Front-End Developer",
   tagline:
     "I craft digital experiences that merge design precision with engineering excellence.",
   shortBio:
@@ -16,8 +16,8 @@ export const personal = {
     "My approach centers on clean architecture, performance optimization, and pixel-perfect implementation. I believe great software comes from understanding both the technical challenges and the human needs behind every project.",
     "When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sketching UI concepts.",
   ],
-  location: "Your City, Country",
-  email: "your.email@example.com",
+  location: "Tbilisi, Georgia",
+  email: "nikadvalishvili517@gmail.com",
   availability: "Open to opportunities",
   resumeUrl: "/resume.pdf",
   portraitUrl: "/portrait.jpg",

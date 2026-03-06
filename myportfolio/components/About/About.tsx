@@ -4,6 +4,7 @@ import { personal } from "@/data/personal";
 import SectionHeading from "@/components/shared/SectionHeading";
 import RevealOnScroll from "@/components/shared/RevealOnScroll";
 import styles from "./About.module.scss";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -20,10 +21,14 @@ export default function About() {
           <RevealOnScroll direction="left" delay={0.1}>
             <div className={styles.imageWrapper}>
               <div className={styles.imagePlaceholder}>
-                <span className={styles.imageLabel}>Your Photo</span>
-                <span className={styles.imageHint}>
-                  Replace with your portrait
-                </span>
+                <Image
+                  src="/1764185408213.jpeg"
+                  alt="Nika Dvalishvili"
+                  //   width={400}
+                  //   height={400}
+                  fill
+                  className={styles.image}
+                />
               </div>
               <div className={styles.imageFrame} aria-hidden="true" />
             </div>

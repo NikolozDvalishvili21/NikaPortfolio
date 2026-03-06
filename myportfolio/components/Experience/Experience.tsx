@@ -59,14 +59,16 @@ export default function Experience() {
 
                 <p className={styles.description}>{item.description}</p>
 
-                <ul className={styles.highlights}>
-                  {item.highlights.map((highlight, i) => (
-                    <li key={i} className={styles.highlight}>
-                      <span className={styles.highlightDash}>—</span>
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
+                {item.highlights && item.highlights.length > 0 && (
+                  <ul className={styles.highlights}>
+                    {item.highlights.map((highlight, i) => (
+                      <li key={i} className={styles.highlight}>
+                        <span className={styles.highlightDash}>—</span>
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 <div className={styles.techStack}>
                   {item.technologies.map((tech) => (

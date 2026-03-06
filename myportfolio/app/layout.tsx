@@ -15,20 +15,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Full-Stack Developer",
+  title: "Nikoloz Dvalishvili — Front-End Developer",
   description:
-    "Personal portfolio of Your Name — a passionate full-stack developer crafting premium digital experiences with modern web technologies.",
+    "Personal portfolio of Nikoloz Dvalishvili — a passionate Front-End developer crafting premium digital experiences with modern web technologies.",
   keywords: [
     "developer",
     "portfolio",
-    "fullstack",
+    "frontend",
     "react",
     "nextjs",
     "typescript",
   ],
-  authors: [{ name: "Your Name" }],
+  authors: [{ name: "Nikoloz Dvalishvili" }],
   openGraph: {
-    title: "Your Name — Full-Stack Developer",
+    title: "Nikoloz Dvalishvili — Front-End Developer",
     description:
       "Personal portfolio showcasing projects, skills, and experience.",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Name — Full-Stack Developer",
+    title: "Nikoloz Dvalishvili — Front-End Developer",
     description:
       "Personal portfolio showcasing projects, skills, and experience.",
   },

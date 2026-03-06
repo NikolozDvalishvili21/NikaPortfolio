@@ -100,6 +100,40 @@
   gap: $space-xs;
 }
 
+.skillTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skillIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: $color-accent;
+  transition:
+    color $transition-fast,
+    transform $transition-fast;
+
+  @include md {
+    width: 24px;
+    height: 24px;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .skillItem:hover & {
+    color: $color-accent-hover;
+    transform: scale(1.1);
+  }
+}
+
 .skillName {
   font-size: $font-size-sm;
   color: $color-text-primary;
