@@ -19,22 +19,19 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "project-1",
-    title: "Project Alpha",
+    title: "Zmna.ge",
     description:
-      "A modern SaaS dashboard with real-time data visualization and collaborative features.",
-    longDescription:
-      "Built from the ground up with performance in mind, this dashboard handles thousands of concurrent data streams while maintaining a smooth 60fps experience.",
+      "Zmna.ge is an entertainment and educational online media, where you can find the most interesting information on topics such as: astrology, cooking, health, show business news, and more.",
     image: "/projects/project-1.jpg",
-    stack: ["Next.js", "TypeScript", "D3.js", "WebSocket", "PostgreSQL"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    stack: ["Next.js"],
+    liveUrl: "https://www.zmna.ge/",
     featured: true,
-    year: "2025",
-    category: "Web Application",
+    year: "2024 - 2025",
+    category: "Web-Site",
   },
   {
     id: "project-2",
-    title: "Project Beta",
+    title: "Reagent.ge",
     description:
       "An e-commerce platform with a focus on mobile-first design and lightning-fast checkout.",
     longDescription:
@@ -69,7 +66,7 @@ export const projects: Project[] = [
     image: "/projects/project-4.jpg",
     stack: ["Vue.js", "Python", "FastAPI", "OpenAI", "PostgreSQL"],
     githubUrl: "https://github.com",
-    featured: false,
+    featured: true,
     year: "2023",
     category: "Productivity",
   },
