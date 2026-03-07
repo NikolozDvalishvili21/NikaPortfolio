@@ -24,8 +24,6 @@ export default function About() {
                 <Image
                   src="/1764185408213.jpeg"
                   alt="Nika Dvalishvili"
-                  //   width={400}
-                  //   height={400}
                   fill
                   className={styles.image}
                 />
