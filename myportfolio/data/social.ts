@@ -11,24 +11,14 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/NikolozDvalishvili21",
     icon: "github",
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/yourusername",
+    url: "https://www.linkedin.com/in/nikoloz-dvalishvili-864171293/",
     icon: "linkedin",
-  },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/yourusername",
-    icon: "twitter",
-  },
-  {
-    name: "Dribbble",
-    url: "https://dribbble.com/yourusername",
-    icon: "dribbble",
-  },
+  }
 ];
 
 export const navigation = [
