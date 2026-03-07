@@ -15,9 +15,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nikoloz Dvalishvili — Front-End Developer",
+  title: "Nikoloz Dvalishvili - Front-End Developer",
   description:
-    "Personal portfolio of Nikoloz Dvalishvili — a passionate Front-End developer crafting premium digital experiences with modern web technologies.",
+    "Personal portfolio of Nikoloz Dvalishvili - a passionate Front-End developer crafting premium digital experiences with modern web technologies.",
   keywords: [
     "developer",
     "portfolio",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Nikoloz Dvalishvili" }],
   openGraph: {
-    title: "Nikoloz Dvalishvili — Front-End Developer",
+    title: "Nikoloz Dvalishvili - Front-End Developer",
     description:
       "Personal portfolio showcasing projects, skills, and experience.",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nikoloz Dvalishvili — Front-End Developer",
+    title: "Nikoloz Dvalishvili - Front-End Developer",
     description:
       "Personal portfolio showcasing projects, skills, and experience.",
   },
