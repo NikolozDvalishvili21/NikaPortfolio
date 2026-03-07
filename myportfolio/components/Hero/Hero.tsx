@@ -136,6 +136,37 @@ export default function Hero() {
               Get In Touch
             </MagneticButton>
           </motion.div>
+
+          {/* Tablet-only highlights */}
+          <motion.div
+            className={styles.highlights}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: 1.1,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            <div className={styles.highlightItem}>
+              <span className={styles.highlightValue}>
+                1<span>+</span>
+              </span>
+              <span className={styles.highlightLabel}>Years Experience</span>
+            </div>
+            <div className={styles.highlightItem}>
+              <span className={styles.highlightValue}>
+                5<span>+</span>
+              </span>
+              <span className={styles.highlightLabel}>Projects Worked On</span>
+            </div>
+            <div className={styles.highlightItem}>
+              <span className={styles.highlightValue}>
+                100<span>%</span>
+              </span>
+              <span className={styles.highlightLabel}>Passion Driven</span>
+            </div>
+          </motion.div>
         </div>
 
         {/* Right visual element */}

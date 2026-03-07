@@ -161,6 +161,49 @@
   gap: $space-md;
 }
 
+// Tablet highlights strip
+.highlights {
+  display: none;
+
+  @include md {
+    display: flex;
+    gap: $space-2xl;
+    margin-top: $space-2xl;
+    padding-top: $space-2xl;
+    border-top: 1px solid $color-border;
+  }
+
+  @include lg {
+    display: none;
+  }
+}
+
+.highlightItem {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+}
+
+.highlightValue {
+  font-size: $font-size-3xl;
+  font-weight: 700;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+  line-height: 1;
+
+  span {
+    color: $color-accent;
+  }
+}
+
+.highlightLabel {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 // Right visual
 .visual {
   flex-shrink: 0;
@@ -310,7 +353,7 @@
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: $space-sm;
@@ -318,6 +361,10 @@
   font-family: $font-mono;
   font-size: $font-size-xs;
   letter-spacing: 0.1em;
+
+  @include lg {
+    display: flex;
+  }
   text-transform: uppercase;
 }
 
