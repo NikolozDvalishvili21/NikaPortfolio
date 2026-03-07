@@ -175,6 +175,7 @@
   position: relative;
   width: 360px;
   height: 360px;
+  cursor: default;
 
   @include xl {
     width: 420px;
@@ -182,16 +183,35 @@
   }
 }
 
-.codeBlock {
+.tiltCard {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cardGlow {
+  position: absolute;
+  inset: -20px;
+  border-radius: $radius-2xl;
+  pointer-events: none;
+  transition: background 0.15s ease;
+  z-index: 0;
+}
+
+.codeBlock {
+  position: relative;
+  z-index: 1;
   width: 280px;
   background: $color-bg-elevated;
   border: 1px solid $color-border;
   border-radius: $radius-lg;
   overflow: hidden;
+  transform: translateZ(40px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 
   @include xl {
     width: 320px;

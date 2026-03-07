@@ -11,6 +11,7 @@ interface MagneticButtonProps {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
+  download?: boolean;
 }
 
 export default function MagneticButton({
@@ -20,6 +21,7 @@ export default function MagneticButton({
   variant = "primary",
   size = "md",
   className = "",
+  download = false,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -51,6 +53,7 @@ export default function MagneticButton({
         href={href}
         onClick={onClick}
         className={`${styles.button} ${styles[variant]} ${styles[size]} ${className}`}
+        {...(download ? { download: true } : {})}
         {...(isExternal
           ? { target: "_blank", rel: "noopener noreferrer" }
           : {})}

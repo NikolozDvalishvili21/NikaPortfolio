@@ -1,11 +1,33 @@
 "use client";
 
+import { useRef, useState, MouseEvent } from "react";
 import { motion } from "framer-motion";
 import { personal } from "@/data/personal";
 import MagneticButton from "@/components/shared/MagneticButton";
 import styles from "./Hero.module.scss";
 
 export default function Hero() {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
+  const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    setTilt({
+      rotateX: (y - 0.5) * -20,
+      rotateY: (x - 0.5) * 20,
+    });
+    setGlowPos({ x: x * 100, y: y * 100 });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ rotateX: 0, rotateY: 0 });
+    setGlowPos({ x: 50, y: 50 });
+  };
+
   return (
     <section className={styles.hero} id="hero">
       {/* Decorative grid */}
@@ -127,45 +149,71 @@ export default function Hero() {
             ease: [0.16, 1, 0.3, 1],
           }}
         >
-          <div className={styles.visualInner}>
-            {/* Abstract code/developer composition */}
-            <div className={styles.codeBlock}>
-              <div className={styles.codeHeader}>
-                <span className={styles.codeDot} />
-                <span className={styles.codeDot} />
-                <span className={styles.codeDot} />
-              </div>
-              <div className={styles.codeContent}>
-                <span className={styles.codeLine}>
-                  <span className={styles.codeKeyword}>const</span>{" "}
-                  <span className={styles.codeVar}>developer</span>{" "}
-                  <span className={styles.codeOp}>=</span> {"{"}
-                </span>
-                <span className={styles.codeLine}>
-                  {"  "}
-                  <span className={styles.codeProp}>passion</span>:{" "}
-                  <span className={styles.codeString}>
-                    &quot;building&quot;
+          <div
+            ref={cardRef}
+            className={styles.visualInner}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ perspective: 800 }}
+          >
+            {/* 3D tilt card */}
+            <motion.div
+              className={styles.tiltCard}
+              animate={{
+                rotateX: tilt.rotateX,
+                rotateY: tilt.rotateY,
+              }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            >
+              {/* Glow that follows the cursor */}
+              <div
+                className={styles.cardGlow}
+                style={{
+                  background: `radial-gradient(circle at ${glowPos.x}% ${glowPos.y}%, rgba(200,165,90,0.15) 0%, transparent 60%)`,
+                }}
+              />
+
+              {/* Abstract code/developer composition */}
+              <div className={styles.codeBlock}>
+                <div className={styles.codeHeader}>
+                  <span className={styles.codeDot} />
+                  <span className={styles.codeDot} />
+                  <span className={styles.codeDot} />
+                </div>
+                <div className={styles.codeContent}>
+                  <span className={styles.codeLine}>
+                    <span className={styles.codeKeyword}>const</span>{" "}
+                    <span className={styles.codeVar}>developer</span>{" "}
+                    <span className={styles.codeOp}>=</span> {"{"}
                   </span>
-                  ,
-                </span>
-                <span className={styles.codeLine}>
-                  {"  "}
-                  <span className={styles.codeProp}>focus</span>:{" "}
-                  <span className={styles.codeString}>&quot;quality&quot;</span>
-                  ,
-                </span>
-                <span className={styles.codeLine}>
-                  {"  "}
-                  <span className={styles.codeProp}>craft</span>:{" "}
-                  <span className={styles.codeString}>
-                    &quot;pixel-perfect&quot;
+                  <span className={styles.codeLine}>
+                    {"  "}
+                    <span className={styles.codeProp}>passion</span>:{" "}
+                    <span className={styles.codeString}>
+                      &quot;building&quot;
+                    </span>
+                    ,
                   </span>
-                  ,
-                </span>
-                <span className={styles.codeLine}>{"}"}</span>
+                  <span className={styles.codeLine}>
+                    {"  "}
+                    <span className={styles.codeProp}>focus</span>:{" "}
+                    <span className={styles.codeString}>
+                      &quot;quality&quot;
+                    </span>
+                    ,
+                  </span>
+                  <span className={styles.codeLine}>
+                    {"  "}
+                    <span className={styles.codeProp}>craft</span>:{" "}
+                    <span className={styles.codeString}>
+                      &quot;pixel-perfect&quot;
+                    </span>
+                    ,
+                  </span>
+                  <span className={styles.codeLine}>{"}"}</span>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Decorative elements */}
             <div className={styles.orbitRing} aria-hidden="true">

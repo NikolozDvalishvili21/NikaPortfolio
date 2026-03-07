@@ -36,7 +36,7 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}
+        className={`${styles.header} ${isScrolled ? styles.scrolled : ""} ${isMobileMenuOpen ? styles.menuOpen : ""}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -80,6 +80,7 @@ export default function Header() {
           >
             <span className={styles.burgerLine} />
             <span className={styles.burgerLine} />
+            <span className={styles.burgerLine} />
           </button>
         </div>
       </motion.header>
@@ -93,6 +94,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            onClick={closeMobileMenu}
           >
             <motion.nav
               className={styles.mobileNav}
@@ -100,6 +102,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.mobileNavInner}>
                 {navigation.map((item, i) => (

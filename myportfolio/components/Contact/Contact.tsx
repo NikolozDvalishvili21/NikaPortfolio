@@ -56,6 +56,7 @@ export default function Contact() {
                     href={personal.resumeUrl}
                     variant="secondary"
                     size="lg"
+                    download
                   >
                     Download Resume
                   </MagneticButton>
