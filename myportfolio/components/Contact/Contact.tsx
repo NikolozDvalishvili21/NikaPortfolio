@@ -1,13 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { personal } from "@/data/personal";
 import { socialLinks } from "@/data/social";
 import SectionHeading from "@/components/shared/SectionHeading";
 import RevealOnScroll from "@/components/shared/RevealOnScroll";
 import MagneticButton from "@/components/shared/MagneticButton";
+import ContactModal from "./ContactModal";
 import styles from "./Contact.module.scss";
 
 export default function Contact() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section className={styles.contact} id="contact">
       <div className={styles.container}>
@@ -32,7 +36,7 @@ export default function Contact() {
 
               <div className={styles.buttons}>
                 <MagneticButton
-                  href={`mailto:${personal.email}`}
+                  onClick={() => setModalOpen(true)}
                   variant="primary"
                   size="lg"
                 >
@@ -90,6 +94,8 @@ export default function Contact() {
           </RevealOnScroll>
         </div>
       </div>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }
