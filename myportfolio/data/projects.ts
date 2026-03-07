@@ -23,7 +23,7 @@ export const projects: Project[] = [
     description:
       "Zmna.ge is an entertainment and educational online media, where you can find the most interesting information on topics such as: astrology, cooking, health, show business news, and more.",
     image: "/projects/zmna.webp",
-    stack: ["Next.js"],
+    stack: ["Next.js", "SCSS"],
     liveUrl: "https://www.zmna.ge/",
     featured: true,
     year: "2024 - 2025",

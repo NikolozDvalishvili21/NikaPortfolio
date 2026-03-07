@@ -22,7 +22,7 @@ export default function Hero() {
 
       <div className={styles.container}>
         <div className={styles.content}>
-          {/* Status badge */}
+          {/* Status badge
           <motion.div
             className={styles.statusBadge}
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,7 @@ export default function Hero() {
           >
             <span className={styles.statusDot} />
             <span>{personal.availability}</span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Main heading */}
           <div className={styles.headingBlock}>
