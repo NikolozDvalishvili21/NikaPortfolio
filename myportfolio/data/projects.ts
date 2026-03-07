@@ -18,19 +18,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "project-1",
-    title: "Zmna.ge",
-    description:
-      "Zmna.ge is an entertainment and educational online media, where you can find the most interesting information on topics such as: astrology, cooking, health, show business news, and more.",
-    image: "/projects/zmna.webp",
-    stack: ["Next.js", "SCSS"],
-    liveUrl: "https://www.zmna.ge/",
-    featured: true,
-    year: "2024 - 2025",
-    category: "Blog Web-Site",
-  },
-  {
-    id: "project-2",
+    id: "project-21",
     title: "Reagent.ge",
     description:
       "Premium quality reagents. REAGENT GROUP offers the highest quality chemical reagents for laboratories and industrial purposes.",
@@ -40,6 +28,18 @@ export const projects: Project[] = [
     featured: true,
     year: "2026",
     category: "Informational Web-Site",
+  },
+  {
+    id: "project-2",
+    title: "Zmna.ge",
+    description:
+      "Zmna.ge is an entertainment and educational online media, where you can find the most interesting information on topics such as: astrology, cooking, health, show business news, and more.",
+    image: "/projects/zmna.webp",
+    stack: ["Next.js", "SCSS"],
+    liveUrl: "https://www.zmna.ge/",
+    featured: true,
+    year: "2024 - 2025",
+    category: "Blog Web-Site",
   },
   {
     id: "project-3",
