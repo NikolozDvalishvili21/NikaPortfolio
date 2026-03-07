@@ -105,6 +105,30 @@ export default function Header() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.mobileNavInner}>
+                <div className={styles.mobileNavHeader}>
+                  <a
+                    href="#hero"
+                    className={styles.mobileLogo}
+                    onClick={closeMobileMenu}
+                  >
+                    {personal.firstName}
+                    <span className={styles.logoAccent}>.</span>
+                  </a>
+                  <button
+                    className={styles.closeBtn}
+                    onClick={closeMobileMenu}
+                    aria-label="Close menu"
+                  >
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                      <path
+                        d="M5 5L17 17M17 5L5 17"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
                 {navigation.map((item, i) => (
                   <motion.a
                     key={item.href}
