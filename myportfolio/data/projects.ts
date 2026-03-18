@@ -42,29 +42,17 @@ export const projects: Project[] = [
     category: "Blog Web-Site",
   },
   {
-    id: "project-3",
-    title: "Project Gamma",
-    description:
-      "A creative portfolio and CMS for a photography studio with advanced image optimization.",
-    longDescription:
-      "Custom-built CMS with drag-and-drop gallery management, automatic image optimization, and SEO-friendly dynamic routes.",
-    image: "/projects/project-3.jpg",
-    stack: ["Next.js", "Sanity CMS", "Cloudinary", "SCSS"],
-    liveUrl: "https://example.com",
-    featured: false,
-    year: "2024",
-    category: "Portfolio / CMS",
-  },
-  {
-    id: "project-4",
-    title: "Project Delta",
-    description:
-      "A task management tool with AI-powered prioritization and smart scheduling.",
-    image: "/projects/project-4.jpg",
-    stack: ["Vue.js", "Python", "FastAPI", "OpenAI", "PostgreSQL"],
-    githubUrl: "https://github.com",
-    featured: false,
-    year: "2023",
-    category: "Productivity",
-  },
+  id: "project-3",
+  title: "TypeSprint",
+  description:
+    "A typing practice mobile app focused on improving speed and accuracy through timed tests, performance tracking, and achievement-based progression.",
+  longDescription:
+    "TypeSprint is a mobile typing trainer built to help users practice typing in a clean, fast, and engaging way. It features timed typing tests, WPM and accuracy tracking, personal best records, badge achievements, statistics history, customizable settings, and a polished mobile-first interface designed for a smooth user experience.",
+  image: "/projects/TypeSprint.jpg",
+  stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
+  liveUrl: "https://apps.apple.com/us/app/typesprint-typing-app/id6760451911",
+  featured: true,
+  year: "2026",
+  category: "Mobile App",
+}
 ];
