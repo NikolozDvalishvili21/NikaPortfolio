@@ -15,6 +15,30 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
+    id: "exp-0",
+    role: "Mobile App Developer",
+    company: "TypeSprint",
+    companyUrl: "https://apps.apple.com/us/app/typesprint-typing-app/id6760451911",
+    period: "2026 - Present",
+    description:
+      "Developed and launched TypeSprint, a mobile typing practice application focused on improving typing speed and accuracy. Designed and implemented a clean, performance-oriented UI, integrated real-time WPM and accuracy tracking, and built a gamified experience with badges, personal best records, and statistics history.",
+    highlights: [
+      "Published the app on the Apple App Store",
+      "Implemented typing engine with real-time WPM and accuracy calculation",
+      "Designed a gamified system with badges, achievements, and progression",
+      "Built local data persistence using AsyncStorage for user stats and history",
+      "Integrated Google AdMob for monetization (banner and rewarded ads)",
+      "Handled iOS-specific requirements including App Tracking Transparency",
+    ],
+    technologies: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "AsyncStorage",
+      "AdMob",
+    ],
+  },
+  {
     id: "exp-1",
     role: "Frontend Developer",
     company: "ROWIX",

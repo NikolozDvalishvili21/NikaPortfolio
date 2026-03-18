@@ -16,6 +16,7 @@ import { DiVisualstudio } from "react-icons/di";
 // Icon map — keys must match skill names in skills.ts
 const skillIcons: Record<string, ReactNode> = {
   React: <SiReact />,
+  "React Native": <SiReact />,
   "Next.js": <SiNextdotjs />,
   TypeScript: <SiTypescript />,
   "HTML/CSS": <SiHtml5 />,

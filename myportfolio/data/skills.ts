@@ -21,6 +21,7 @@ export const skillCategories: SkillCategory[] = [
     description: "Building interfaces that users love",
     skills: [
       { name: "React" },
+      { name: "React Native" },
       { name: "Next.js" },
       { name: "TypeScript" },
       { name: "HTML/CSS" },
