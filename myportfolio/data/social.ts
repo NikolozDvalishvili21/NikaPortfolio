@@ -23,6 +23,7 @@ export const socialLinks: SocialLink[] = [
 
 export const navigation = [
   { label: "About", href: "#about" },
+  { label: "Media", href: "#media" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },

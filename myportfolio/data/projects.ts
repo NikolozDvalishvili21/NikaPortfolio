@@ -18,6 +18,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "project-3",
+    title: "TypeSprint",
+    description:
+      "A typing practice mobile app focused on improving speed and accuracy through timed tests, performance tracking, and achievement-based progression.",
+    longDescription:
+      "TypeSprint is a mobile typing trainer built to help users practice typing in a clean, fast, and engaging way. It features timed typing tests, WPM and accuracy tracking, personal best records, badge achievements, statistics history, customizable settings, and a polished mobile-first interface designed for a smooth user experience.",
+    image: "/projects/TypeSprint.jpg",
+    stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
+    liveUrl: "https://apps.apple.com/us/app/typesprint-typing-app/id6760451911",
+    featured: true,
+    year: "2026",
+    category: "Mobile App",
+  },
+  {
     id: "project-21",
     title: "Reagent.ge",
     description:
@@ -41,18 +55,4 @@ export const projects: Project[] = [
     year: "2024 - 2025",
     category: "Blog Web-Site",
   },
-  {
-  id: "project-3",
-  title: "TypeSprint",
-  description:
-    "A typing practice mobile app focused on improving speed and accuracy through timed tests, performance tracking, and achievement-based progression.",
-  longDescription:
-    "TypeSprint is a mobile typing trainer built to help users practice typing in a clean, fast, and engaging way. It features timed typing tests, WPM and accuracy tracking, personal best records, badge achievements, statistics history, customizable settings, and a polished mobile-first interface designed for a smooth user experience.",
-  image: "/projects/TypeSprint.jpg",
-  stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
-  liveUrl: "https://apps.apple.com/us/app/typesprint-typing-app/id6760451911",
-  featured: true,
-  year: "2026",
-  category: "Mobile App",
-}
 ];

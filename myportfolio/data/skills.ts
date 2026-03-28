@@ -20,8 +20,8 @@ export const skillCategories: SkillCategory[] = [
     title: "Frontend",
     description: "Building interfaces that users love",
     skills: [
-      { name: "React" },
       { name: "React Native" },
+      { name: "React" },
       { name: "Next.js" },
       { name: "TypeScript" },
       { name: "HTML/CSS" },
@@ -36,9 +36,9 @@ export const skillCategories: SkillCategory[] = [
     description: "Development ecosystem & practices",
     skills: [
       { name: "Git" },
-      { name: "Figma" },
       { name: "VS Code" },
       { name: "Vercel" },
+      { name: "Figma" },
     ],
   },
 ];

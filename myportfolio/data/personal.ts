@@ -6,7 +6,7 @@ export const personal = {
   name: "Nikoloz Dvalishvili",
   firstName: "Nikoloz",
   lastName: "Dvalishvili",
-  role: "Front-End Developer",
+  role: "React/React Native Developer",
   tagline:
     "I craft digital experiences that merge design precision with engineering excellence.",
   shortBio:

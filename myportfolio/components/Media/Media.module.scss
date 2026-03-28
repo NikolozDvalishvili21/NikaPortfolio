@@ -1,0 +1,416 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+// ============================================
+// MEDIA SECTION
+// ============================================
+
+.section {
+  @include section-padding;
+  background: $color-bg;
+  position: relative;
+  overflow: hidden;
+
+  // subtle grain texture overlay
+  &::before {
+    content: "";
+    position: fixed;
+    inset: -200%;
+    width: 400%;
+    height: 400%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.03;
+    animation: grain 8s steps(10) infinite;
+    z-index: 0;
+  }
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 1;
+}
+
+// ============================================
+// HEADER
+// ============================================
+
+.header {
+  margin-bottom: $space-2xl;
+}
+
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  margin-bottom: $space-sm;
+}
+
+.sectionNum {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  letter-spacing: 0.1em;
+}
+
+.sectionLine {
+  display: block;
+  height: 1px;
+  width: 40px;
+  background: $color-border;
+}
+
+.sectionTitle {
+  @include heading-lg;
+  margin: 0 0 $space-sm;
+}
+
+.sectionSub {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+// ============================================
+// FILTER BAR
+// ============================================
+
+.filterBar {
+  display: flex;
+  gap: $space-sm;
+  flex-wrap: wrap;
+  margin-bottom: $space-2xl;
+}
+
+.filterBtn {
+  background: transparent;
+  border: 1px solid $color-border;
+  color: $color-text-muted;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  padding: 6px 16px;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  transition:
+    border-color $transition-fast,
+    color $transition-fast,
+    background $transition-fast;
+
+  @include focus-ring;
+
+  &:hover {
+    border-color: $color-border-hover;
+    color: $color-text-secondary;
+  }
+}
+
+.filterActive {
+  background: $color-text-primary;
+  border-color: $color-text-primary;
+  color: $color-bg;
+
+  &:hover {
+    background: $color-text-primary;
+    border-color: $color-text-primary;
+    color: $color-bg;
+  }
+}
+
+// ============================================
+// GRID
+// ============================================
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: $color-border;
+  border: 1px solid $color-border;
+  margin-bottom: 1px;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// ============================================
+// CARD BASE
+// ============================================
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  padding: $space-xl;
+  background: $color-bg;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background $transition-fast;
+  position: relative;
+
+  @include focus-ring;
+
+  @include md {
+    padding: $space-xl $space-2xl;
+  }
+
+  &:hover {
+    background: $color-bg-elevated;
+
+    .readLink svg {
+      transform: translate(2px, -2px);
+    }
+
+    .cardTitle {
+      color: $color-text-primary;
+    }
+  }
+}
+
+// ============================================
+// CARD ANIMATION
+// ============================================
+
+.cardAnimate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity $transition-slow,
+    transform $transition-slow,
+    background $transition-fast;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// ============================================
+// FEATURED CARD
+// ============================================
+
+.cardFeatured {
+  @include md {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: start;
+    padding: $space-2xl $space-3xl;
+  }
+
+  .cardTitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+.featuredContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.featuredVisual {
+  display: none;
+
+  @include md {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-md;
+    background: $color-bg-elevated;
+    border: 1px solid $color-border;
+    aspect-ratio: 16 / 10;
+    position: relative;
+  }
+}
+
+.featuredBadge {
+  position: absolute;
+  top: $space-md;
+  left: $space-md;
+  font-family: $font-mono;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: $color-text-primary;
+  color: $color-bg;
+  border-radius: $radius-sm;
+}
+
+.imgLabel {
+  font-family: $font-mono;
+  font-size: 10px;
+  color: $color-text-muted;
+  letter-spacing: 0.08em;
+}
+
+// ============================================
+// CARD INTERNALS
+// ============================================
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: $font-mono;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: $radius-sm;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  color: $color-text-muted;
+  flex-shrink: 0;
+
+  &--press {
+    border-color: rgba(90, 154, 90, 0.3);
+    color: #5a9a5a;
+    background: rgba(90, 154, 90, 0.06);
+  }
+
+  &--interview {
+    border-color: rgba(154, 90, 154, 0.3);
+    color: #9a5a9a;
+    background: rgba(154, 90, 154, 0.06);
+  }
+}
+
+.cardSource {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.cardDate {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin-left: auto;
+}
+
+.cardTitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 600;
+  color: $color-text-secondary;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin: 0;
+  transition: color $transition-fast;
+
+  @include line-clamp(3);
+}
+
+.cardExcerpt {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  line-height: 1.7;
+  margin: 0;
+
+  @include line-clamp(3);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: $space-md;
+  border-top: 1px solid $color-border;
+}
+
+.readLinks {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  flex-wrap: wrap;
+}
+
+.readLink {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  svg {
+    transition: transform $transition-base;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    color: $color-text-secondary;
+
+    svg {
+      transform: translate(2px, -2px);
+    }
+  }
+
+  .card:hover & {
+    color: $color-text-secondary;
+  }
+}
+
+.readTime {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+// ============================================
+// STATS ROW
+// ============================================
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: $color-border;
+  border: 1px solid $color-border;
+  border-top: none;
+}
+
+.statCell {
+  background: $color-bg;
+  padding: $space-lg $space-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+
+  @include md {
+    padding: $space-xl $space-2xl;
+  }
+}
+
+.statNum {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: $color-text-primary;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  letter-spacing: 0.06em;
+}
