@@ -14,6 +14,7 @@ export interface Project {
   featured: boolean;
   year: string;
   category: string;
+  ongoing?: boolean;
 }
 
 export const projects: Project[] = [
@@ -25,11 +26,32 @@ export const projects: Project[] = [
     longDescription:
       "TypeSprint is a mobile typing trainer built to help users practice typing in a clean, fast, and engaging way. It features timed typing tests, WPM and accuracy tracking, personal best records, badge achievements, statistics history, customizable settings, and a polished mobile-first interface designed for a smooth user experience.",
     image: "/projects/TypeSprint.jpg",
-    stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
+    stack: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Supabase",
+      "Google/Apple Auth",
+      "AsyncStorage",
+    ],
     liveUrl: "https://apps.apple.com/us/app/typesprint-typing-app/id6760451911",
     featured: true,
     year: "2026",
     category: "Mobile App",
+  },
+  {
+    id: "project-4",
+    title: "Remy",
+    description:
+      "A mobile reminder app designed to help users manage recurring payments, bills, and important tasks through a clean and intuitive experience.",
+    longDescription:
+      "Remy is a mobile reminder app built to make everyday organization easier and more reliable. It helps users keep track of recurring payments, upcoming bills, and important reminders in one simple place. The app focuses on a smooth mobile-first experience, clear status tracking, and practical reminder management, making it easier to stay on top of real-life responsibilities without unnecessary complexity.",
+    image: "/projects/RemyScreen.png",
+    stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
+    featured: true,
+    year: "2026",
+    category: "Mobile App",
+    ongoing: true,
   },
   {
     id: "project-21",

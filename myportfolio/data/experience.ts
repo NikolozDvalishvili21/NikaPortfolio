@@ -18,14 +18,17 @@ export const experience: ExperienceItem[] = [
     id: "exp-0",
     role: "Mobile App Developer",
     company: "TypeSprint",
-    companyUrl: "https://apps.apple.com/us/app/typesprint-typing-app/id6760451911",
+    companyUrl:
+      "https://apps.apple.com/us/app/typesprint-typing-app/id6760451911",
     period: "2026 - Present",
     description:
-      "Developed and launched TypeSprint, a mobile typing practice application focused on improving typing speed and accuracy. Designed and implemented a clean, performance-oriented UI, integrated real-time WPM and accuracy tracking, and built a gamified experience with badges, personal best records, and statistics history.",
+      "Developed and launched “TypeSprint”, a mobile typing practice application focused on improving typing speed and accuracy. Designed and implemented a clean, performance-oriented UI, integrated authorization, global leaderboard, real-time WPM and accuracy tracking, and built a gamified experience with badges, personal best records, and statistics history. Achieved strong market traction, reaching #2 on the App Store in Georgia at its peak ranking.",
     highlights: [
       "Published the app on the Apple App Store",
       "Implemented typing engine with real-time WPM and accuracy calculation",
-      "Designed a gamified system with badges, achievements, and progression",
+      "Designed a gamified system with badges, achievements, cursors and progression",
+      "Integrated Google and Apple authorization",
+      "Integrated Global leaderboard with Supabase and real-time updates",
       "Built local data persistence using AsyncStorage for user stats and history",
       "Integrated Google AdMob for monetization (banner and rewarded ads)",
       "Handled iOS-specific requirements including App Tracking Transparency",

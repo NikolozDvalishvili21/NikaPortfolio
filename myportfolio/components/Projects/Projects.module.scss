@@ -43,6 +43,13 @@
   }
 }
 
+.ongoingMini {
+  margin-left: 6px;
+  font-size: 11px;
+  opacity: 0.7;
+  color: gold;
+}
+
 .cardRight {
   @include lg {
     grid-template-columns: 1fr 1.2fr;

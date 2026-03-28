@@ -50,7 +50,12 @@ function ProjectCard({
           </motion.div>
 
           {/* Year badge */}
-          <div className={styles.yearBadge}>{project.year}</div>
+          <div className={styles.yearBadge}>
+            {project.year}
+            {project.ongoing && (
+              <span className={styles.ongoingMini}>• Ongoing</span>
+            )}
+          </div>
         </div>
 
         {/* Content section */}

@@ -19,6 +19,6 @@ export const personal = {
   location: "Tbilisi, Georgia",
   email: "nikadvalishvili517@gmail.com",
   // availability: "Open to opportunities",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Nikoloz_Dvalishvili_DEV.pdf",
   portraitUrl: "/portrait.jpg",
 };
