@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import SectionHeading from "@/components/shared/SectionHeading";
@@ -24,7 +25,6 @@ function ProjectCard({
         initial="rest"
         animate="rest"
       >
-        {/* Image section */}
         <div className={styles.imageSection}>
           <motion.div
             className={styles.imageWrapper}
@@ -42,14 +42,12 @@ function ProjectCard({
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.image}
               />
-              {/* Fallback overlay for missing images */}
               <div className={styles.imageFallback}>
                 <span>{project.title}</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Year badge */}
           <div className={styles.yearBadge}>
             {project.year}
             {project.ongoing && (
@@ -58,7 +56,6 @@ function ProjectCard({
           </div>
         </div>
 
-        {/* Content section */}
         <div className={styles.contentSection}>
           <span className={styles.projectCategory}>{project.category}</span>
           <h3 className={styles.projectTitle}>{project.title}</h3>
@@ -117,7 +114,6 @@ function ProjectCard({
           </div>
         </div>
 
-        {/* Hover border glow */}
         <motion.div
           className={styles.cardGlow}
           variants={{
@@ -134,6 +130,9 @@ function ProjectCard({
 
 export default function Projects() {
   const featuredProjects = projects.filter((p) => p.featured);
+  const [expanded, setExpanded] = useState(false);
+
+  const visibleProjects = expanded ? featuredProjects : featuredProjects.slice(0, 4);
 
   return (
     <section className={styles.projects} id="projects">
@@ -145,10 +144,39 @@ export default function Projects() {
         />
 
         <div className={styles.projectList}>
-          {featuredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+          {visibleProjects.map((project, index) => (
+            <div
+              key={project.id}
+              className={
+                !expanded && index === 3 && featuredProjects.length > 4
+                  ? styles.fadeItem
+                  : undefined
+              }
+            >
+              <ProjectCard project={project} index={index} />
+            </div>
           ))}
         </div>
+
+        {!expanded && featuredProjects.length > 4 && (
+          <div className={styles.showMoreWrapper}>
+            <button
+              className={styles.showMoreBtn}
+              onClick={() => setExpanded(true)}
+            >
+              <span>All Projects</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M8 3v10M3 8l5 5 5-5"
+                  stroke="currentColor"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

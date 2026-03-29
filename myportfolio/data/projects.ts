@@ -77,4 +77,29 @@ export const projects: Project[] = [
     year: "2024 - 2025",
     category: "Blog Web-Site",
   },
+  {
+    id: "project-5",
+    title: "Color Picker",
+    description:
+      "A simple and elegant color picker app for designers and developers.",
+    image: "/projects/colorPicker.png",
+    stack: ["Next.js", "CSS"],
+    liveUrl: "https://color-picker-nine-ivory.vercel.app",
+    featured: true,
+    year: "2026",
+    category: "Blog Web-Site",
+  },
+  {
+    id: "project-6",
+    title: "Time Tracker",
+    description:
+      "Track time spent on specific tabs. Track how much time you spend on specific browser tabs. Add a tab, label it (like coding, research, or work), and monitor your time automatically.",
+    image: "/projects/timeTracker.png",
+    stack: ["TypeScript", "React", "CSS"],
+    liveUrl:
+      "https://chromewebstore.google.com/detail/bnoaohdegcheompicmiddelikoldpfid?utm_source=item-share-cb",
+    featured: true,
+    year: "2026",
+    category: "Blog Web-Site",
+  },
 ];

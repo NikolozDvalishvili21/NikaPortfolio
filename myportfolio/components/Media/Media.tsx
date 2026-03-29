@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styles from "./Media.module.scss";
 import Image from "next/image";
 
-type MediaType = "all" | "online media" | "interview";
+type MediaType = "all" | "online media" | "interview" | "tv";
 
 interface MediaItem {
   id: number;
@@ -17,9 +17,21 @@ interface MediaItem {
   url: string;
   secondaryUrl?: string;
   featured?: boolean;
+  youtubeId?: string;
 }
 
 const MEDIA_ITEMS: MediaItem[] = [
+  {
+    id: 0,
+    type: "tv",
+    source: "TV IMEDI",
+    date: "Mar 2026",
+    title: "",
+    excerpt: "",
+    readTime: "5 min watch",
+    url: "https://www.youtube.com/watch?v=pQ4_1P6T1tE",
+    youtubeId: "pQ4_1P6T1tE",
+  },
   {
     id: 1,
     type: "online media",
@@ -54,14 +66,15 @@ const MEDIA_ITEMS: MediaItem[] = [
     date: "May 2024",
     title: "ქართულ ბაზარზე ტექნოლოგიური კომპანია 'გარგარი' გამოჩნდა",
     excerpt:
-      "როგორც „ბიზნესპარტნიორს“ სტარტაპის თანადამფუძნებელმა  ნიკოლოზ დვალიშვილმა განუცხადა, კომპანიის მიზანია დამკვეთისთვის სრული პროგრამული უზრუნველყოფის პაკეტის მიწოდება, რომელშიც პროდუქტის მაღალ ხარისხთან ერთად დამკვეთის ინფრასტრუქტურაში სრული ინტეგრაცია და კომპლექსური ტექნიკური მხარდაჭერა მოიაზრება.",
+      "როგორც 'ბიზნესპარტნიორს' სტარტაპის თანადამფუძნებელმა  ნიკოლოზ დვალიშვილმა განუცხადა, კომპანიის მიზანია დამკვეთისთვის სრული პროგრამული უზრუნველყოფის პაკეტის მიწოდება, რომელშიც პროდუქტის მაღალ ხარისხთან ერთად დამკვეთის ინფრასტრუქტურაში სრული ინტეგრაცია და კომპლექსური ტექნიკური მხარდაჭერა მოიაზრება.",
     readTime: "3 min read",
     url: "https://bp.ge/news/biznesi/qartul-bazarze-teqnologiuri-kompania-gargari-gamochnda",
-  }
+  },
 ];
 
 const FILTERS: { label: string; value: MediaType }[] = [
   { label: "all", value: "all" },
+  { label: "tv", value: "tv" },
   { label: "online media", value: "online media" },
   { label: "interview", value: "interview" },
 ];
@@ -122,6 +135,50 @@ interface MediaCardProps {
   index: number;
 }
 
+function TVCard({ item, index }: MediaCardProps) {
+  const [node, setNode] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          node.style.transitionDelay = `${index * 80}ms`;
+          node.classList.add(styles.visible);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [node, index]);
+
+  return (
+    <div
+      ref={(el) => setNode(el)}
+      className={`${styles.card} ${styles.cardTV} ${styles.cardAnimate}`}
+    >
+      <div className={styles.cardMeta}>
+        <span className={`${styles.tag} ${styles[`tag--tv`]}`}>tv</span>
+        <span className={styles.cardSource}>— {item.source}</span>
+        <span className={styles.cardDate}>{item.date}</span>
+      </div>
+      <div className={styles.tvEmbed}>
+        <iframe
+          src={`https://www.youtube.com/embed/${item.youtubeId}`}
+          title="TV appearance"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+      <div className={styles.cardFooter}>
+        <span className={styles.readTime}>{item.readTime}</span>
+      </div>
+    </div>
+  );
+}
+
 function MediaCard({ item, index }: MediaCardProps) {
   const [node, setNode] = useState<HTMLElement | null>(null);
 
@@ -145,6 +202,10 @@ function MediaCard({ item, index }: MediaCardProps) {
 
   const setDivRef = (el: HTMLDivElement | null) => setNode(el);
   const setAnchorRef = (el: HTMLAnchorElement | null) => setNode(el);
+
+  if (item.type === "tv") {
+    return <TVCard item={item} index={index} />;
+  }
 
   if (item.featured) {
     return (
@@ -192,8 +253,6 @@ function MediaCard({ item, index }: MediaCardProps) {
           <Image
             src="/images/myScreen.png"
             alt="article"
-            // width={400}
-            // height={300}
             fill
             className={styles.image}
           />
@@ -238,6 +297,15 @@ export default function Media() {
   );
 
   const hasFeatured = filtered.some((i) => i.featured);
+  // const hasTV = filtered.some((i) => i.type === "tv");
+
+  // Non-TV items (go into the regular grid)
+  const tvItems = filtered.filter((i) => i.type === "tv");
+  const nonTVItems = filtered.filter((i) => i.type !== "tv");
+
+  // For the grid fix: if odd number of non-TV items and the last row would be
+  // a single card in a 2-col grid, we need to know
+  const nonTVCount = nonTVItems.length;
 
   return (
     <section className={styles.section} id="media">
@@ -268,13 +336,25 @@ export default function Media() {
           ))}
         </div>
 
-        <div
-          className={`${styles.grid} ${hasFeatured ? styles.gridWithFeatured : ""}`}
-        >
-          {filtered.map((item, i) => (
-            <MediaCard key={item.id} item={item} index={i} />
-          ))}
-        </div>
+        {/* TV cards — always full width, shown first */}
+        {tvItems.length > 0 && (
+          <div className={styles.tvSection}>
+            {tvItems.map((item, i) => (
+              <TVCard key={item.id} item={item} index={i} />
+            ))}
+          </div>
+        )}
+
+        {/* Regular cards grid */}
+        {nonTVItems.length > 0 && (
+          <div
+            className={`${styles.grid} ${hasFeatured ? styles.gridWithFeatured : ""} ${nonTVCount === 1 ? styles.gridSingle : ""} ${nonTVCount === 2 && !hasFeatured ? styles.gridTwo : ""}`}
+          >
+            {nonTVItems.map((item, i) => (
+              <MediaCard key={item.id} item={item} index={i} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
