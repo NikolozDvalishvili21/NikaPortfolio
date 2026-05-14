@@ -19,6 +19,30 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "project-4",
+    title: "Simebi",
+    description:
+      "A bilingual guitar teacher discovery platform that connects students with teachers through a clean, responsive, and user-friendly experience.",
+    longDescription:
+      "Simebi is a bilingual platform designed to help students discover guitar teachers and allow teachers to apply to be listed on the platform. It includes role-based authentication, OTP email verification, teacher application submission, admin approval and rejection workflows, rejection reason emails, resubmission flow, image uploads, and Georgian/English localization. The project focuses on a smooth user experience, scalable structure, and production-oriented features.",
+    image: "/projects/RemyScreen.png",
+    stack: [
+      "React",
+      "TypeScript",
+      "SCSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Resend",
+      "Cloudinary",
+      "i18next",
+    ],
+    featured: true,
+    year: "2026",
+    category: "Full-Stack Web App",
+    ongoing: true,
+  },
+  {
     id: "project-3",
     title: "TypeSprint",
     description:
@@ -38,20 +62,6 @@ export const projects: Project[] = [
     featured: true,
     year: "2026",
     category: "Mobile App",
-  },
-  {
-    id: "project-4",
-    title: "Remy",
-    description:
-      "A mobile reminder app designed to help users manage recurring payments, bills, and important tasks through a clean and intuitive experience.",
-    longDescription:
-      "Remy is a mobile reminder app built to make everyday organization easier and more reliable. It helps users keep track of recurring payments, upcoming bills, and important reminders in one simple place. The app focuses on a smooth mobile-first experience, clear status tracking, and practical reminder management, making it easier to stay on top of real-life responsibilities without unnecessary complexity.",
-    image: "/projects/RemyScreen.png",
-    stack: ["React Native", "Expo", "TypeScript", "AsyncStorage"],
-    featured: true,
-    year: "2026",
-    category: "Mobile App",
-    ongoing: true,
   },
   {
     id: "project-21",

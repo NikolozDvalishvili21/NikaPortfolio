@@ -37,7 +37,7 @@ export const experience: ExperienceItem[] = [
       "React Native",
       "Expo",
       "TypeScript",
-      "AsyncStorage",
+      "Supabase",
       "AdMob",
     ],
   },

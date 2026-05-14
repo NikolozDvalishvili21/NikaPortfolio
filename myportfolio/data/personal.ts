@@ -6,7 +6,7 @@ export const personal = {
   name: "Nikoloz Dvalishvili",
   firstName: "Nikoloz",
   lastName: "Dvalishvili",
-  role: "React/React Native Developer",
+  role: "Full-Stack Developer",
   tagline:
     "I craft digital experiences that merge design precision with engineering excellence.",
   shortBio:
@@ -18,7 +18,6 @@ export const personal = {
   ],
   location: "Tbilisi, Georgia",
   email: "nikadvalishvili517@gmail.com",
-  // availability: "Open to opportunities",
-  resumeUrl: "/Nikoloz_Dvalishvili_CV.pdf",
+  resumeUrl: "/Nikoloz_Dvalishvili_Front_End_Developer.pdf",
   portraitUrl: "/portrait.jpg",
 };
